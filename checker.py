@@ -4,12 +4,11 @@ import pandas as pd
 from tqdm import tqdm
 
 
-#os.mkdir('/Users/nataliejin/PycharmProjects/untitled1/balance_sheets')
 wk_dir = '/Users/nataliejin/PycharmProjects/untitled1/financials'
 bs_dir = '/Users/nataliejin/PycharmProjects/untitled1/balance_sheets'
 csv_list = os.listdir(wk_dir)
 after_list=[]
-#print(csv_list)
+
 for csv_file in csv_list:
     if csv_file.find('资产负债') > 0:
         after_list.append(csv_file)
@@ -18,7 +17,6 @@ for csv_file in csv_list:
 
 
 bs_list = os.listdir(bs_dir)
-
 pbar = tqdm(total=len(bs_list))
 
 results = pd.DataFrame(columns=['是否平衡'])
